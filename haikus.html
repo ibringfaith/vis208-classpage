@@ -5,68 +5,103 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<style>
-        /* You can put any styles here */
-        img {
-            max-width: 100%;
-        }
-        body {
-        	background: #FF9999;
-        	padding: 2em;
-        }
-        .card {
-        	width: 450px;
-        	height: 300px;
-        	background: white;
-        	border-radius: 8px;
-        	text-align: center;
-        	font-family: serif;
-        	display: flex;
-        	align-items: center;
-        	justify-content: center;
-            position: relative;
-		}
-		.title {
-			font-size: 12px;
-			text-align: left;
-			position: absolute;
-			bottom: 10px;
-			right: 10px;
-		}
+	        /* You can put any styles here */
+	        img {
+	            max-width: 100%;
+	        }
+	        body {
+	        	background: #FF9999;
+	        	padding: 2em;
+	        }
+	        .card {
+	        	width: 450px;
+	        	height: 300px;
+	        	background: white;
+	        	border-radius: 8px;
+	        	text-align: center;
+	        	font-family: serif;
+	        	display: flex;
+	        	align-items: center;
+	        	justify-content: center;
+	            position: relative;
+			}
+			.title {
+				font-size: 12px;
+				text-align: left;
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+			#haiku1,
+			#haiku2,
+			#haiku3,
+			#haiku4 {
+				opacity: 0;
+			}
+			body[data-status="morning"] #haiku2 {
+				opacity: 1;
+			}
+
+			body[data-status="afternoon"] #haiku3 {
+				opacity: 1;
+			}
+
+			body[data-status="evening"] #haiku4 {
+				opacity: 1;
+			}
+
+			body[data-status="night"] #haiku1 {
+				opacity: 1;
+			}
     	</style>
     </head>
     <body data-new-gr-c-s-check-loaded="14.1152.0" data-gr-ext-installed="">
 
     	<h1>Haikus</h1>
     	<h2>Room E109 Wilf Hall</h2>
+		
+		<section id = "haiku1">
+    		<div class="card">
+    			<div class="title">
+    				<h3>Haiku 1</h3>
+    			</div>
+    			<p>Whiteboard with drawings<br>Creepy, scholarly, happy<br>Black marker spirits</p>
+    		</div>
+    	</section id = "haiku1">
+    	
+    	<br>
 
-    	<div class="card">
-    		<div class="title">
-    			<h3>Haiku 1</h3>
-    		</div>
-    		<p>Whiteboard with drawings<br>Creepy, scholarly, happy<br>Black marker spirits</p>
-    	</div>
+    	<section id = "haiku2">
+	    	<div class="card" #haiku2>
+	    		<div class="title">
+	    			<h3>Haiku 2</h3>
+	    		</div>
+	    		<p>Students studying<br>White walls, red seats, brown table<br>Tapping and typing</p>
+	    	</div>
+	    </section id = "haiku2">
+    	
     	<br>
-    	<div class="card">
-    		<div class="title">
-    			<h3>Haiku 2</h3>
-    		</div>
-    		<p>Students studying<br>White walls, red seats, brown table<br>Tapping and typing</p>
-    	</div>
-    	<br>
-    	<div class="card">
-    		<div class="title">
-    			<h3>Haiku 3</h3>
-    		</div>
-    		<p>People passing by<br>Outside and inside they pass<br>Chatting and walking</p>
-    	</div>
-    	<br>
-    	<div class="card">
-    		<div class="title">
-    			<h3>Haiku 4</h3>
-    		</div>
-    		<p>Light in room changes<br>As the sun sets and leaves us<br>Still working in dark</p>
-    	</div>
 
+    	<section id = "haiku3">
+	    	<div class="card" #haiku3>
+	    		<div class="title">
+	    			<h3>Haiku 3</h3>
+	    		</div>
+	    		<p>People passing by<br>Outside and inside they pass<br>Chatting and walking</p>
+	    	</div>
+    	</section id = "haiku3">
+
+    	<br>
+    	
+    	<section id = "haiku4">
+	    	<div class="card" #haiku4>
+	    		<div class="title">
+	    			<h3>Haiku 4</h3>
+	    		</div>
+	    		<p>Light in room changes<br>As the sun sets and leaves us<br>Still working in dark</p>
+	    	</div>
+	    </section id = "haiku4">
+	    <script src="script.js"></script>
 	</body>
 </html>
 	
