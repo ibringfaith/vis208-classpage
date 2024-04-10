@@ -21,10 +21,10 @@ function updateTimeStatus() {
     document.body.style.backgroundColor = '#685E5A';
   } else if (hour >= 5 && hour < 17) {
     status = "light";
-    document.body.style.backgroundColor = '#827570';
+    document.body.style.backgroundColor = '#C9FBFF';
   } else {
     status = "dark";
-    document.body.style.backgroundColor = '#685E5A';
+    document.body.style.backgroundColor = '#E7E0E1';
   }
 
   document.body.setAttribute("data-status", status);

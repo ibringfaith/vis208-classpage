@@ -90,6 +90,60 @@
 				text-shadow: #A41E23 1px 1px 2px;
 				opacity: 1;
 			}
+			:root {
+            	--card_width: 250px;
+            	--row_increment: 10px;
+            	--card_border_radius: 16px;
+           		--card_small: 26;
+            	--card_medium: 33;
+            	--card_large: 45;
+        	}
+        	.pin_container {
+            	margin: 0;
+	            padding: 0;
+	            width: 80vw;
+	            position: absolute;
+	            left: 50%;
+	            transform: translateX(-50%);
+
+	            display: grid;
+	            grid-template-columns: repeat(auto-fill, var(--card_width));
+	            grid-auto-rows: var(--row_increment);
+	            justify-content: center;
+
+	            background-color: #B58877;
+        	}
+
+	        .card {
+	            padding: 0;
+	            margin: 15px 10px;
+	            border-radius: var(--card_border_radius);
+	            background-color: #A41E23;
+	        }
+
+	        .card_small {
+	            grid-row-end: span var(--card_small);
+	        }
+
+	        .card_medium {
+	            grid-row-end: span var(--card_medium);
+	        }
+
+	        .card_large {
+	            grid-row-end: span var(--card_large);
+	        }
+	        #messages {
+		        list-style-type: none;
+		        padding: 0;
+		    }
+		    .message {
+		        border: 1px solid #ccc;
+		        margin-bottom: 10px;
+		        padding: 10px;
+		    }
+		    .message p {
+		        margin: 0;
+		    }
     	</style>
     </head>
     <body data-new-gr-c-s-check-loaded="14.1152.0" data-gr-ext-installed="">
@@ -97,13 +151,28 @@
 		<section id = "main">
 			<h1><b>Introduce </b><i>Yourself</i></h1>
 			<p>This is a message board where you can put your nickname or name, residential college, major, what you’re working on, how you’re feeling, or anything else you want to share about you. (Inspiring quotes, thoughts on chemistry, etc.)</p>
+			<form id="messageForm">
+			    <textarea id="messageInput" placeholder="Enter your message"></textarea>
+			    <br>
+			    <button type="submit">Post Message</button>
+			</form>
+
+			<ul id="messages"></ul>
 			<br>
 			<h1><i>Pinterest </i><b>Study </b><i>Inspo</i></h1>
 			<p>Here’s some things that students do to help them with their studying. Of course everyone learns differently and what works for one person might not work for anyone else. I hope something from here helps you or is just nice to see. Best of luck :)</p>
-			<div class='sk-ww-pinterest-board' data-embed-id='25393411'></div><script src='https://widgets.sociablekit.com/pinterest-board/widget.js' async defer></script>
-			<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-			<div class="elfsight-app-d88b304e-fdcb-4127-a45d-e7be508f9786" data-elfsight-app-lazy></div>
-			<center><iframe data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.com/dash0296/school-hacks-cause-we-all-need-them/"></iframe></center>
+			<div class="pin_container">
+		        <div class="card card_small"><img src="pin3.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_medium"><img src="pin1.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_large"><img src="pin2.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_medium"><img src="pin6.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_small"><img src="pin5.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_large"><img src="pin12.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_medium"><img src="pin9.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_small"><img src="pin4.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_medium"><img src="pin10.jpeg" alt="Girl in a jacket"></div>
+		        <div class="card card_small"><img src="pin11.jpeg" alt="Girl in a jacket"></div>
+		    </div>
     	</section id = "main">
 
     	<section id = "sleep">
@@ -135,9 +204,53 @@
     		<h2><i>Playing Just Dance</i></h2>
     		<p>...and will return to studing later :)</p>
     	</section id = "studybreak">
+
+    	<script>
+		    document.getElementById('messageForm').addEventListener('submit', function(event) {
+		        event.preventDefault();
+		        var messageInput = document.getElementById('messageInput');
+		        var messageText = messageInput.value.trim();
+		        
+		        if (messageText !== '') {
+		            addMessage(messageText);
+		            saveMessagesToLocalStorage();
+		            messageInput.value = '';
+		        }
+		    });
+
+		    window.addEventListener('load', function() {
+		        loadMessagesFromLocalStorage();
+		    });
+
+		    function addMessage(text) {
+		        var messagesContainer = document.getElementById('messages');
+		        var messageElement = document.createElement('li');
+		        messageElement.classList.add('message');
+		        messageElement.innerHTML = '<p>' + text + '</p>';
+		        messagesContainer.appendChild(messageElement);
+		    }
+
+		    function saveMessagesToLocalStorage() {
+		        var messages = [];
+		        var messageElements = document.querySelectorAll('.message p');
+		        messageElements.forEach(function(messageElement) {
+		            messages.push(messageElement.textContent);
+		        });
+		        localStorage.setItem('messages', JSON.stringify(messages));
+		    }
+
+		    function loadMessagesFromLocalStorage() {
+		        var storedMessages = localStorage.getItem('messages');
+		        if (storedMessages) {
+		            var messages = JSON.parse(storedMessages);
+		            messages.forEach(function(message) {
+		                addMessage(message);
+		            });
+		        }
+		    }
+		</script>
     	
     	<script src="daynightmode.js"></script>
-    	<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 	</body>
 </html>
 	
