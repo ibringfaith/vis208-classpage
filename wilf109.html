@@ -204,52 +204,32 @@
     		<h2><i>Playing Just Dance</i></h2>
     		<p>...and will return to studing later :)</p>
     	</section id = "studybreak">
+		<script>
+		    const socket = io();
 
-    	<script>
 		    document.getElementById('messageForm').addEventListener('submit', function(event) {
 		        event.preventDefault();
-		        var messageInput = document.getElementById('messageInput');
-		        var messageText = messageInput.value.trim();
+		        const messageInput = document.getElementById('messageInput');
+		        const messageText = messageInput.value.trim();
 		        
 		        if (messageText !== '') {
-		            addMessage(messageText);
-		            saveMessagesToLocalStorage();
+		            socket.emit('message', messageText);
 		            messageInput.value = '';
 		        }
 		    });
 
-		    window.addEventListener('load', function() {
-		        loadMessagesFromLocalStorage();
+		    socket.on('message', function(message) {
+		        addMessage(message);
 		    });
 
 		    function addMessage(text) {
-		        var messagesContainer = document.getElementById('messages');
-		        var messageElement = document.createElement('li');
-		        messageElement.classList.add('message');
-		        messageElement.innerHTML = '<p>' + text + '</p>';
+		        const messagesContainer = document.getElementById('messages');
+		        const messageElement = document.createElement('li');
+		        messageElement.textContent = text;
 		        messagesContainer.appendChild(messageElement);
 		    }
-
-		    function saveMessagesToLocalStorage() {
-		        var messages = [];
-		        var messageElements = document.querySelectorAll('.message p');
-		        messageElements.forEach(function(messageElement) {
-		            messages.push(messageElement.textContent);
-		        });
-		        localStorage.setItem('messages', JSON.stringify(messages));
-		    }
-
-		    function loadMessagesFromLocalStorage() {
-		        var storedMessages = localStorage.getItem('messages');
-		        if (storedMessages) {
-		            var messages = JSON.parse(storedMessages);
-		            messages.forEach(function(message) {
-		                addMessage(message);
-		            });
-		        }
-		    }
 		</script>
-    	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
     	<script src="daynightmode.js"></script>
 	</body>
 </html>
