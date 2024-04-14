@@ -1,217 +1,52 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>E109</title>
-		<link rel="icon" type="image/x-icon" href="E109.png">
+		<title>Faith Best</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<style>
-	        /* You can put any styles here */
-	        img {
-	            max-width: 100%;
-	        }
-	        body {
-	        	padding: 2em;
-	        }
-	        h1, h2 {
-	        	font-family: Georgia, Serif;
-	        }
-	        h3, h4, h5 {
-	        	font-family: Arial, sans-serif;
-	        }
-	        p {
-	        	font-family: "Times New Roman", Times, serif;
-	        	text-shadow: none;
-	        }
-			#main,
-			#breakfast,
-			#lunch,
-			#dinner,
-			#studybreak,
-			#sleep {
-				opacity: 0;
-			}
-
-			body[data-status="breakone"] #sleep {
-				text-align: center;
-				color: #C1AFB1;
-				padding: 1em;
-				opacity: 1;
-			}
-
-			body[data-status="breaktwo"] #breakfast {
-				text-align: center;
-				color: #E7E0E1;
-				padding: 1em;
-				opacity: 1;
-			}
-
-			body[data-status="breakthree"] #lunch {
-				text-align: center;
-				color: #E7E0E1;
-				padding: 1em;
-				opacity: 1;
-			}
-
-			body[data-status="breakfour"] #dinner {
-				text-align: center;
-				color: #C1AFB1;
-				padding: 1em;
-				opacity: 1;
-			}
-
-			body[data-status="breakfive"] #studybreak {
-				text-align: center;
-				color: #C1AFB1;
-				padding: 1em;
-				opacity: 1;
-			}
-
-			body[data-status="light"] #main {
-				text-align: center;
-				color: #1A1A1A;
-				text-shadow: #CC252A 1px 1px 2px;
-				opacity: 1;
-			}
-
-			body[data-status="dark"] #main {
-				text-align: center;
-				color: #151515;
-				text-shadow: #A41E23 1px 1px 2px;
-				opacity: 1;
-			}
-			:root {
-            	--card_width: 250px;
-            	--row_increment: 10px;
-            	--card_border_radius: 16px;
-           		--card_small: 26;
-            	--card_medium: 33;
-            	--card_large: 45;
-        	}
-        	.pin_container {
-            	margin: 0;
-	            padding: 0;
-	            width: 80vw;
-	            position: absolute;
-	            left: 50%;
-	            transform: translateX(-50%);
-
-	            display: grid;
-	            grid-template-columns: repeat(auto-fill, var(--card_width));
-	            grid-auto-rows: var(--row_increment);
-	            justify-content: center;
-
-	            background-color: #B58877;
-        	}
-
-	        .card {
-	            padding: 0;
-	            margin: 15px 10px;
-	            border-radius: var(--card_border_radius);
-	            background-color: #A41E23;
-	        }
-
-	        .card_small {
-	            grid-row-end: span var(--card_small);
-	        }
-
-	        .card_medium {
-	            grid-row-end: span var(--card_medium);
-	        }
-
-	        .card_large {
-	            grid-row-end: span var(--card_large);
-	        }
-
-	        #message-board {
-			    max-width: 600px;
-			    margin: 0 auto;
-			    padding: 20px;
-			}
-
-			#message-form {
-			    display: flex;
-			    margin-bottom: 20px;
-			}
-
-			#message-input {
-			    flex: 1;
-			    padding: 10px;
-			}
-
-			#messages {
-			    list-style-type: none;
-			    padding: 0;
-			}
-
-			.message {
-			    margin-bottom: 10px;
-			    padding: 10px;
-			    background-color: #f0f0f0;
-			    border-radius: 5px;
-			}
+        /* You can put any styles here */
+        img {
+            max-width: 100%;
+        }
     	</style>
     </head>
     <body data-new-gr-c-s-check-loaded="14.1152.0" data-gr-ext-installed="">
 
-		<section id = "main">
-			<h1><b>Introduce </b><i>Yourself</i></h1>
-			<p>This is a message board where you can put your nickname or name, residential college, major, what you’re working on, how you’re feeling, or anything else you want to share about you, such as inspiring quotes, thoughts on chemistry, etc. (Don't worry, the only person who can view your messages is anyone on your device).</p>
-			<div id="message-board">
-		        <form id="message-form">
-		            <input type="text" id="message-input" placeholder="Type your message...">
-		            <button type="submit">Display</button>
-		        </form>
-		        <ul id="messages"></ul>
-		    </div>
-			<h1><i>Pinterest </i><b>Study </b><i>Inspo</i></h1>
-			<p>Here’s some things that students do to help them with their studying. Of course everyone learns differently and what works for one person might not work for anyone else. I hope something from here helps you or is just nice to see. Best of luck :)</p>
-			<div class="pin_container">
-		        <div class="card card_small"><img src="pin3.jpeg" alt="Study Tip #2: Do as many past exams papers as possible to nail the exam technique. Practice makes PERFECT!"></div>
-		        <div class="card card_medium"><img src="pin1.jpeg" alt="A page of a description about Cornell Note Taking."></div>
-		        <div class="card card_large"><img src="pin2.jpeg" alt="Tips for doing well on exams."></div>
-		        <div class="card card_medium"><img src="pin6.jpeg" alt="Description of how someone studies"></div>
-		        <div class="card card_small"><img src="pin5.jpeg" alt="Don't study without breaks. Make sure to relax your mind - it can be every 25 minutes or every 3 hours!"></div>
-		        <div class="card card_large"><img src="pin12.jpeg" alt="When you need a push: Seriously, just do your homework the day you receive it, write revision notes, do your readings, write on those readings, make flash cards, knock out assignments as soon as you know they actually exist, read every wider reading novel (analyse these novels), read your required readings (analyse these too), go over flash cards every morning/afternoon, make use of spare time in class, do homework at lunch if needed, stick to your schedule, buy coffee/hot chocolate in the mornings and put in a thermos, keep a necessities pouch in your bag, keep your PE shoes in your locker, use a planner, track your spendings, wash your hair, brush your hair, go to commitments, attend school events, attend events you are invited too, go shopping, watch movies, be kind to yourself, take bubble baths, light candles, listen to music, SLEEP, get that 9, and most importantly be proud of yourself."></div>
-		        <div class="card card_medium"><img src="pin9.jpeg" alt="Studying: How-tos, Advice, & Tips"></div>
-		        <div class="card card_small"><img src="pin4.jpeg" alt="LIVE. LOVE & LEARN STUDY TIPS. SCHEDULE STUDY TIME: Review your calendar and schedule time to study throughout the week. Schedule enough time to cover all classes. Stick to the schedule! If something urgent comes up, reschedule your study time. USE SUBJECT BLOCKING: When scheduling your study time, block subjects into smaller blocks. Instead of studying one subject for 3 hours straight, do 3 different subjects for 1 hour each. This will help keep your mind engaged. Repeat throughout the week. SWITCH IT UP: Use different studying techniques to keep yourself interested. Read, watch videos, review notes, create and use flash cards, or find a study buddy to quiz and have them quiz you. GET ENOUGH SLEEP: To fully function, you need sleep. Your brain needs sleep to be sharp and focused. Sleep will help energize you and sleep helps you retain information. SILENCE DISTRACTIONS: Put your phone on Airplane or Focus mode. Notify anyone you are expecting to contact you that you will be offscreen for a period of time. Turn off the TV. Turn on non-distracting instrumental music if you need background noise."></div>
-		        <div class="card card_medium"><img src="pin10.jpeg" alt="Motivation tips"></div>
-		        <div class="card card_small"><img src="pin11.jpeg" alt="Be positive! Think positive and encourage yourself. Your mindset is more important than you think, so keep motivating yourself and telling yoursefl that you are going to ace your exams."></div>
-		    </div>
-    	</section id = "main">
+    	<img src="faithkite.jpg" width="600" alt="Faith flying a kite">
 
-    	<section id = "sleep">
-    		<h3>This Website is..</h3>
-    		<h2><i>Sleeping</i></h2>
-    		<p>...and will return to studying later :)</p>
-    	</section id = "sleep">
+    	<p>Faith Best, student of <a href="https://veryinteractive.net/ultralight">VIS 208. Ultralight: Lightweight Websites in Time &amp; Place</a> at Princeton University, welcomes you to her class homepage.</p>
 
-    	<section id = "breakfast">
-    		<h3>This Website is..</h3>
-    		<h2><i>At Breakfast</i></h2>
-    		<p>...and will return to studying later :)</p>
-    	</section id = "breakfast">
+    	<hr>
 
-    	<section id = "lunch">
-    		<h3>This Website is..</h3>
-    		<h2><i>At Lunch</i></h2>
-    		<p>...and will return to studying later :)</p>
-    	</section id = "lunch">
+    	<h2>Exercises</h2>
 
-    	<section id = "dinner">
-    		<h3>This Website is..</h3>
-    		<h2><i>At Dinner</i></h2>
-    		<p>...and will return to studying later :)</p>
-    	</section id = "dinner">
+    	<a href="freestyle.html">HTML Freestyle</a>
+    	<br>
+    	<a href="writing.html">HTML Writing</a>
+    	<br>
+    	<a href="library.html">HTML Library</a>
+    	<br>
+    	<a href="card.html">CSS Business Cards</a>
+    	<br>
+    	<a href="ideas.html">Ideas for Lightweight Format</a>
+    	<br>
+    	<a href="CSSLibrary.html">Visual Library</a>
+    	<br>
+    	<a href="classroom.html">Responsive Website About Our Classroom</a>
+    	<br>
+    	<a href="rosemontpark.html">Dedicated to Rosemont Park</a>
+    	<br>
+    	<a href="kiteflying.html">Flying My Kite</a>
+    	<br>
+    	<a href="haikus.html">Haikus</a>
+    	<br>
+    	<a href="wilf109/index.html">Local Website</a>
 
-    	<section id = "studybreak">
-    		<h3>This Website is..</h3>
-    		<h2><i>Playing Just Dance</i></h2>
-    		<p>...and will return to studying later :)</p>
-    	</section id = "studybreak">
+    	<h2>Inspiration</h2>
 
-    	<script src="basicmessagescript.js"></script>
-    	<script src="daynightmode.js"></script>
+    	<a href="https://laurelschwulst.github.io/ultralight-p/">Laurel Schwulst's Website</a>
+
 	</body>
 </html>
 	
